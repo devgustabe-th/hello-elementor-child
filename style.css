@@ -1,0 +1,379 @@
+/*
+Theme Name: Hello Elementor Child
+Theme URI: http://your-website.com/hello-elementor-child/
+Description: Child theme for Hello Elementor ลูก theme ออกแบบ เพื่อเว็บไซต์ของ www.linearmotorshop.com เท่านั้นทั้งระบบ login และ สร้างการซ้อน ระบบใหนหน้าต่างๆเพื่อความปลอดภัยในเว็บไซต์ ลองรับ vertion WordPress 6.4. +++
+Author: jirateap charungpan
+Author URI: https://gustabe.com
+Template: hello-elementor 
+Version: 1.0.0
+Text Domain: hello-elementor-child
+
+License: GNU General Public License v3 or later.
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Tags: custom theme, Gustabe.com
+*/
+
+/* เพิ่ม CSS ของคุณเองที่นี่ */
+
+
+/* ตัดฟอนต์เริ่มต้นของ Hello Elementor */
+body, h1, h2, h3, h4, h5, h6, p, a {
+    font-family: 'VT323', 'Noto Sans Thai', sans-serif !important;
+}
+
+/* กำหนดฟอนต์แยกตามภาษา */
+@font-face {
+    font-family: 'VT323';
+    unicode-range: U+0000-007F; /* ภาษาอังกฤษ */
+}
+
+@font-face {
+    font-family: 'Noto Sans Thai';
+    unicode-range: U+0E00-0E7F; /* ภาษาไทย */
+}
+
+/* กำหนดฟอนต์สำหรับภาษาไทยและอังกฤษ */
+
+
+body a{
+    color: rgb(2, 135, 135);
+}
+
+
+
+
+
+
+
+
+
+/* สไตล์สำหรับฟอร์มคอมเมนต์ */
+
+/* จัดฟิลด์ Your Name, Your Email, Your Phone, และ Line User ให้อยู่ในแถวเดียวกัน */
+
+.comment-form-cookies-consent {
+    clear: both; /* เคลียร์ float เพื่อให้แสดงอยู่แถวใหม่ */
+    margin-top: 15px; /* ระยะห่างด้านบน */
+}
+
+
+
+.comment-form-author,
+.comment-form-email,
+.comment-form-phone,
+.comment-form-lineuser {
+    width: 23%; /* แต่ละฟิลด์มีขนาด 23% */
+    float: left;
+    margin-bottom: 15px;
+}
+
+.comment-form-author,
+.comment-form-email,
+.comment-form-phone {
+    margin-right: 2%; /* ระยะห่างระหว่างฟิลด์ */
+}
+
+/* ล้างการจัดการ float เพื่อไม่ให้ส่งผลกับฟอร์มถัดไป */
+.comment-form:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* สไตล์สำหรับปุ่ม Submit */
+.submit-comment-button {
+    background-color: #265175 !important; /* ปุ่มสีน้ำเงิน */
+    color: white !important;
+    padding: 10px 20px !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.submit-comment-button:hover {
+    background-color: #1d3e5a; /* ปุ่มสีเข้มขึ้นเมื่อ hover */
+}
+
+/* สไตล์สำหรับการแสดงผลของคอมเมนต์ */
+.comment-list-styled .comment {
+    background-color: #ffffff; /* ขาว */
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0; /* ขอบสีเทาอ่อน */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment-list-styled .comment-author {
+    color: #265175; /* สีน้ำเงิน #265175 */
+    font-weight: bold;
+}
+
+.comment-list-styled .comment-metadata {
+    color: #666; /* สีเทาเข้ม */
+}
+
+.comment-list-styled .comment-content {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333; /* สีข้อความ */
+}
+
+
+.comment-list-styled .comment{
+    border:none !important;
+}
+
+
+@media (max-width: 480px) {
+    .comment-form-author,
+    .comment-form-email,
+    .comment-form-phone,
+    .comment-form-lineuser {
+        width: 100% !important; /* ให้ฟิลด์เต็มความกว้างในอุปกรณ์ขนาดเล็ก */
+        margin-right: 0 !important; /* ไม่มีระยะห่างด้านขวา */
+    }
+
+    .comment-form-cookies-consent {
+        margin-top: 15px !important; /* ระยะห่างด้านบน */
+        width: 100% !important; /* ให้ Checkbox เต็มความกว้าง */
+    }
+
+
+}
+
+
+
+/* เปลี่ยนสีและขนาดของราคาปกติ */
+.price del {
+    color: #265175; /* สีของราคาปกติ */
+    font-size: 50%; /* ขนาดตัวหนังสือราคาปกติ ลดลง 50% */
+}
+
+/* เปลี่ยนสีของราคาลด */
+.price ins {
+    color: #265175; /* สีของราคาลด */
+}
+
+/* เปลี่ยนสีของราคาปกติ เมื่อไม่มีราคาลด */
+.woocommerce-Price-amount {
+    color: #265175; /* สีของราคาปกติ */
+}
+
+
+
+.woocommerce .elementor-widget-woocommerce-product-images span.onsale {
+    padding: .5em !important;
+    background-color: #1b4765;
+}
+
+
+
+
+
+
+
+
+/* สไตล์ปุ่มดาวน์โหลด */
+.download-docs-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+/* ปุ่มดาวน์โหลด */
+.download-doc-button {
+    background-color: #265175; /* สีปุ่ม */
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    width: 100%; /* ขนาดปุ่มเท่ากันทั้งหมด */
+    max-width: 150px; /* ขนาดสูงสุดของปุ่ม */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s; /* เพิ่ม transition สำหรับ background */
+}
+
+/* การเปลี่ยนแปลงเมื่อ hover */
+.download-doc-button:hover {
+    background-color: #1d4a73; /* เปลี่ยนสีเมื่อ hover */
+    transform: scale(1.05);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* การเปลี่ยนแปลงเมื่อกด */
+.download-doc-button:active {
+    transform: scale(0.95); /* ขนาดเล็กลงเมื่อกด */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) { /* สำหรับแท็บเล็ต */
+    .download-doc-button {
+        font-size: 16px; /* ขนาดตัวอักษรที่ใหญ่ขึ้น */
+        padding: 12px; /* เพิ่ม padding */
+        max-width: 100%; /* ให้ปุ่มเต็มความกว้าง */
+    }
+}
+
+@media (max-width: 480px) { /* สำหรับมือถือ */
+    .download-doc-button {
+        font-size: 14px; /* ปรับขนาดตัวอักษร */
+        padding: 10px; /* ปรับ padding */
+        max-width: 100%; /* ให้ปุ่มเต็มความกว้าง */
+    }
+
+    .download-docs-container {
+        flex-direction: column; /* ให้เรียงในแนวตั้ง */
+        gap: 5px; /* ลดระยะห่างระหว่างปุ่ม */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ปรับแต่งสไตล์ของ shop_attributes */
+.woocommerce-product-attributes.shop_attributes {
+    border: 2px solid #e5e5e5; /* ขอบรอบตาราง */
+    border-radius: 8px;
+    background-color: #f9f9f9; /* สีพื้นหลัง */
+    padding: 15px;
+    margin-top: 20px;
+}
+
+/* สไตล์ของแต่ละแถวในตาราง */
+.woocommerce-product-attributes.shop_attributes tr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px !important;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* แถวสุดท้ายของตาราง */
+.woocommerce-product-attributes.shop_attributes tr:last-child {
+    border-bottom: none;
+}
+
+/* ปรับแต่งชื่อ Attribute */
+.woocommerce-product-attributes.shop_attributes th {
+    font-weight: 600;
+    color: #265175; /* สีของชื่อ Attribute */
+    width: 40% !important;
+    text-align: left;
+    padding-right: 10px;
+    border: 0px !important;
+}
+
+/* ปรับแต่งค่าของ Attribute */
+.woocommerce-product-attributes.shop_attributes td {
+    color: #333;
+    font-weight: 500;
+    width: 60% !important;
+    padding: 0px 0px 0px 0.5em !important;
+    border: 0px !important;
+    
+}
+
+/* เพิ่มไอคอนและพื้นหลังให้สวยงาม */
+.woocommerce-product-attributes.shop_attributes th::before {
+    content: "✓";
+    color: #265175; /* สีของเครื่องหมายถูก */
+    margin-right: 5px;
+}
+
+/* ปรับแต่ง hover ของแถว */
+.woocommerce-product-attributes.shop_attributes tr:hover {
+    background-color: #e0f2ff; /* สีเมื่อ hover */
+    transition: background-color 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ส่วนของฟิลเตอร์ */
+.product-filter-container {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.product-filter-container input,
+.product-filter-container select {
+    padding: 8px;
+    font-size: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ในไฟล์ style.css ของธีม */
+
+
+
+
+

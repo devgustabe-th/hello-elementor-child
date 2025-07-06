@@ -1,0 +1,59 @@
+
+/*CSS สำหรับการจัดวางฟิลด์และปุ่มให้สวยงามและ Responsive:*/
+.variation-fields {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.variation-fields .field-group {
+    flex: 1;
+    min-width: 250px; /* ขนาดขั้นต่ำสำหรับแต่ละฟิลด์ */
+}
+
+.variation-fields label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.variation-fields input {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+/* ปรับเลย์เอาต์เมื่อหน้าจอเล็กกว่า 768px */
+@media screen and (max-width: 768px) {
+    .variation-fields {
+        flex-direction: column;
+    }
+}
+
+.custom-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+    width: 100%; /* ให้ปุ่มครอบคลุมเต็มความกว้าง */
+}
+
+.custom-button:hover {
+    background-color: #45a049;
+}
+
+.custom-button.remove-variation {
+    background-color: #f44336;
+}
+
+.custom-button.remove-variation:hover {
+    background-color: #e60000;
+}
+
+/* ---CSS สำหรับการจัดวางฟิลด์และปุ่มให้สวยงามและ Responsive:--- */
+
+
