@@ -18,10 +18,19 @@ function gustabe_custom_login_logo() {
     $background_url = '/wp-content/uploads/2025/07/fasicare-Bg.webp';
     $creditdev = 'GUSTABE';
     $url_dev = 'https://gustabe.com';
+
+    $background_style = '';
+    if (!empty($background_url)) {
+        $background_style = 'background-image: url(\'' . esc_url($background_url) . '\'); background-size: cover; background-position: center center; background-repeat: no-repeat;';
+    } else {
+        $background_style = 'background: linear-gradient(120deg, #b6fbff 0%, #83eaf1 100%);';
+    }
+
+
     ?>
     <style>
             body.login {
-                background: linear-gradient(120deg, #b6fbff 0%, #83eaf1 100%);
+                <?php echo $background_style; ?>
                 min-height: 100vh;
                 display: flex;
                 align-items: center;
@@ -53,10 +62,9 @@ function gustabe_custom_login_logo() {
             #login h1 a {
                 background-image: url('<?php echo $logo_url; ?>');
                 background-size: contain;
+                background-position: center center;
                 width: 95px;
                 height: 95px;
-                border-radius: 50%;
-                box-shadow: 0 1.5px 8px rgba(61,183,235,0.10);
                 margin-bottom: 18px;
                 margin-left: auto;
                 margin-right: auto;
