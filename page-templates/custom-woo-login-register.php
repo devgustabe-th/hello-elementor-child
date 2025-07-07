@@ -8,7 +8,7 @@
 // เพิ่มโค้ดส่วนนี้: Redirect ไปยังหน้า My Account หากผู้ใช้ล็อกอินอยู่แล้ว
 // ===================================================================================
 if ( is_user_logged_in() && ! is_admin() ) {
-    wp_redirect( wc_get_page_permalink( 'myaccount' ) ); // Redirect ไปยังหน้า My Account หลักของ WooCommerce
+    wp_redirect( wc_get_page_permalink( 'myaccount' ) );
     exit;
 }
 // ===================================================================================
@@ -25,14 +25,14 @@ get_header(); // เรียกใช้ส่วนหัวของเว็
                 <?php
                 // ส่วนนี้จะแสดงผลก็ต่อเมื่อผู้ใช้ยังไม่ได้ล็อกอินเท่านั้น (เพราะโค้ด redirect ข้างบนจะทำงานเมื่อล็อกอินแล้ว)
 
-                // แสดงฟอร์ม Login โดยใช้ Shortcode
+                // แสดงฟอร์ม Login โดยใช้ Shortcode ที่เรากำหนดเอง
                 echo '<h2>' . esc_html__( 'เข้าสู่ระบบ', 'woocommerce' ) . '</h2>';
-                echo do_shortcode( '[woocommerce_form_login]' );
+                echo do_shortcode( '[custom_login_form]' ); // <--- เปลี่ยนมาใช้ Shortcode ที่กำหนดเอง
 
-                // แสดงฟอร์ม Register (จะแสดงต่อเมื่อเปิดใช้งานการลงทะเบียนบนหน้า My Account ใน WooCommerce Settings)
+                // แสดงฟอร์ม Register โดยใช้ Shortcode ที่เรากำหนดเอง
                 if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) {
                     echo '<h2>' . esc_html__( 'ลงทะเบียน', 'woocommerce' ) . '</h2>';
-                    echo do_shortcode( '[woocommerce_form_register]' );
+                    echo do_shortcode( '[custom_register_form]' ); // <--- เปลี่ยนมาใช้ Shortcode ที่กำหนดเอง
                 }
                 ?>
             </div></article></main></div><?php
