@@ -7,7 +7,7 @@
 // ===================================================================================
 // เพิ่มโค้ดส่วนนี้: Redirect ไปยังหน้า My Account หากผู้ใช้ล็อกอินอยู่แล้ว
 // ===================================================================================
-if ( is_user_logged_in() && ! is_admin() ) { // is_admin() เพื่อป้องกันการ redirect loop ใน wp-admin
+if ( is_user_logged_in() && ! is_admin() ) {
     wp_redirect( wc_get_page_permalink( 'myaccount' ) ); // Redirect ไปยังหน้า My Account หลักของ WooCommerce
     exit;
 }
@@ -35,7 +35,6 @@ get_header(); // เรียกใช้ส่วนหัวของเว็
                     echo do_shortcode( '[woocommerce_form_register]' );
                 }
                 ?>
-            </div></article>
-    </main></div><?php
+            </div></article></main></div><?php
 get_footer(); // เรียกใช้ส่วนท้ายของเว็บไซต์ (Footer)
 ?>
