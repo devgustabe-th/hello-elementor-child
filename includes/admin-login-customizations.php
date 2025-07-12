@@ -1,6 +1,5 @@
 <?php
 // ========== ADMIN & LOGIN PAGE CUSTOMIZATION ==========
-
 // Change admin title
 add_filter('admin_title', function ($admin_title) {
     return str_replace('&#8212; WordPress', '', $admin_title);

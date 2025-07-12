@@ -21,20 +21,19 @@ function gustabe_security_redirects() {
 
     // ตรวจสอบว่า URL เป็น fasicare-login และโหลด wp-login.php
     if (strpos($_SERVER['REQUEST_URI'], 'fasicare-login') !== false) {
+        // === โค้ดส่วนนี้คือการแก้ไข Warning: Undefined variable ===
+        global $user_login, $error, $interim_login;
+        $user_login = ''; // กำหนดค่าเริ่มต้นเป็นสตริงว่าง
+        $error = '';      // กำหนดค่าเริ่มต้นเป็นสตริงว่าง
+        // $interim_login อาจเกี่ยวข้องในการเรียกใช้บาง Context
+        $interim_login = (isset($_REQUEST['interim-login']) && $_REQUEST['interim_login'] === '1');
+        // ==========================================================
+
         require_once(ABSPATH . 'wp-login.php');
         exit;
     }
 }
 add_action('init', 'gustabe_security_redirects');
-
-// บล็อกการเข้าถึง wp-admin ถ้าไม่ได้ล็อกอิน (เสริมความปลอดภัยเมื่อเข้าถึงส่วน admin_init)
-function gustabe_redirect_admin_if_not_logged_in() {
-    if (is_admin() && !is_user_logged_in() && !wp_doing_ajax()) {
-        wp_safe_redirect(home_url('/404'));
-        exit;
-    }
-}
-add_action('admin_init', 'gustabe_redirect_admin_if_not_logged_in');
 
 // Restrict login by IP or Thai country (with transient cache)
 add_filter('wp_authenticate_user', 'gustabe_login_restrict_ip_v2', 10, 2);
@@ -69,10 +68,7 @@ add_action('wp_logout', function () {
     exit;
 });
 
-// Change logout URL to homepage
-add_filter('logout_url', function ($logout_url, $redirect) {
-    return home_url('/');
-}, 10, 2);
+
 
 // ========== EMAIL LOGIN ATTEMPT ALERT ==========
 add_action('wp_login_failed', 'gustabe_notify_admin_on_login_attempt');
