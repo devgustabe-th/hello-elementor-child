@@ -224,7 +224,8 @@ function gustabe_custom_login_logo() {
 add_filter('login_headerurl', function() {
     return home_url();
 });
-add_filter('login_headertitle', function() {
+// โค้ดใหม่ (แก้ไขแล้ว)
+add_filter('login_headertext', function() {
     return 'กลับไปที่เว็บไซต์ fasicare';
 });
 
