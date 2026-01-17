@@ -1,0 +1,492 @@
+/* โค้ด CSS ที่มีอยู่เดิมของคุณทั้งหมดจะอยู่ด้านบนนี้ */
+/*
+Theme Name: Hello Elementor Child
+Theme URI: http://your-website.com/hello-elementor-child/
+Description: Child theme for Hello Elementor ลูก theme ออกแบบ เพื่อเว็บไซต์ของ www.linearmotorshop.com เท่านั้นทั้งระบบ login และ สร้างการซ้อน ระบบใหนหน้าต่างๆเพื่อความปลอดภัยในเว็บไซต์ ลองรับ vertion WordPress 6.4. +++
+Author: jirateap charungpan
+Author URI: https://gustabe.com
+Template: hello-elementor
+Version: 1.0.0
+Text Domain: hello-elementor-child
+
+License: GNU General Public License v3 or later.
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Tags: custom theme, Gustabe.com
+*/
+
+/* เพิ่ม CSS ของคุณเองที่นี่ */
+
+/* นำเข้าสไตล์จากธีมหลัก (สำคัญสำหรับธีมลูก) */
+/* ถ้ามีบรรทัดนี้อยู่แล้วในไฟล์ ให้ข้ามไป ไม่ต้องใส่ซ้ำ */
+@import url("../hello-elementor/style.css");
+
+/* โค้ด CSS เดิมของคุณใน style.css */
+body, h1, h2, h3, h4, h5, h6, p, a:not([class*="fa-"]) { /* เพิ่ม :not([class*="fa-"]) เพื่อยกเว้นแท็กที่มีคลาส fa- */
+    font-family: 'VT323', 'Noto Sans Thai', sans-serif !important;
+}
+
+
+/*กฎเฉพาะสำหรับ Font Awesome */
+
+.fas, .far, .fal, .fab { /* สำหรับ Font Awesome 5/6 */
+    font-family: "Font Awesome 6 Free" !important; /* หรือ "Font Awesome 6 Brands" สำหรับ icon brands */
+    font-weight: 900 !important; /* สำหรับ fas icons */
+}
+
+
+
+body a {
+    color: rgb(2, 135, 135);
+}
+.comment-form-cookies-consent {
+    clear: both;
+    margin-top: 15px;
+}
+.comment-form-author, .comment-form-email, .comment-form-phone, .comment-form-lineuser {
+    width: 23%;
+    float: left;
+    margin-bottom: 15px;
+}
+.comment-form-author, .comment-form-email, .comment-form-phone {
+    margin-right: 2%;
+}
+.comment-form:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.submit-comment-button {
+    background-color: #265175 !important;
+    color: white !important;
+    padding: 10px 20px !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+}
+.submit-comment-button:hover {
+    background-color: #1d3e5a;
+}
+.comment-list-styled .comment {
+    background-color: #ffffff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.comment-list-styled .comment-author {
+    color: #265175;
+    font-weight: bold;
+}
+.comment-list-styled .comment-metadata {
+    color: #666;
+}
+.comment-list-styled .comment-content {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+.comment-list-styled .comment {
+    border: none !important;
+}
+@media (max-width: 480px) {
+    .comment-form-author, .comment-form-email, .comment-form-phone, .comment-form-lineuser {
+        width: 100% !important;
+        margin-right: 0 !important;
+    }
+    .comment-form-cookies-consent {
+        margin-top: 15px !important;
+        width: 100% !important;
+    }
+}
+
+/* --- โค้ดใหม่สำหรับ Header ที่คุณจะเพิ่มเข้ามาตรงนี้ --- */
+
+/* สไตล์ทั่วไปสำหรับ Header */
+.gustabe-header-full-width {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding-block-start: 0;
+    padding-block-end: 0;
+}
+
+/* New CSS for the new wrapper */
+.header-wrapper {
+    margin: 0 auto;
+}
+
+
+/* สไตล์สำหรับปุ่ม "เข้าสู่ระบบ/สมัครสมาชิก" ใหม่ */
+.my-account-link-split-text {
+    background-color: #04a49c;
+    color: #fff !important;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.my-account-link-split-text:hover {
+    background-color: #038a83;
+}
+
+.my-account-link-split-text .split-text-login,
+.my-account-link-split-text .split-text-register {
+    font-size: 0.8em;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.my-account-link-split-text .fa-user {
+    color: #fff;
+    font-size: 1.5em;
+    margin-right: 8px;
+}
+
+
+/* สไตล์สำหรับผู้ใช้ที่ล็อกอินแล้ว */
+.my-account-link-logged-in-split-text {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: #333;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+
+.my-account-link-logged-in-split-text:hover {
+    background-color: #f5f5f5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.my-account-link-logged-in-split-text .avatar-wrapper img {
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.my-account-link-logged-in-split-text .split-text-greeting {
+    font-size: 0.7em;
+    font-weight: 400;
+    color: #666;
+}
+
+.my-account-link-logged-in-split-text .split-text-username {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #333;
+}
+
+
+/* สไตล์สำหรับ Dropdown menu */
+.dropdown-menu {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+    padding: 0.5rem 0;
+}
+
+.dropdown-item {
+    font-size: 0.9em;
+    padding: 0.5rem 1rem;
+}
+
+/* สไตล์สำหรับปุ่มค้นหา */
+.search-icon-link {
+    color: #555;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.search-icon-link:hover {
+    color: #04a39c;
+}
+
+/* สไตล์สำหรับฟอร์มค้นหาใน Modal */
+/* ปรับ Modal ให้เป็น Pop-up ขนาดกลาง */
+#search-popup-modal .modal-dialog {
+    max-width: 500px;
+    margin: 1.75rem auto;
+}
+
+#search-popup-modal .modal-content {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#search-popup-modal .modal-header {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+#search-popup-modal .modal-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+#search-popup-modal .modal-body {
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+}
+
+/* สไตล์สำหรับช่องค้นหาและไอคอนภายใน Modal ตามภาพตัวอย่าง */
+.search-input-container {
+    position: relative;
+    width: 100%;
+}
+
+.search-input-container .search-input-field {
+    width: 100%;
+    padding: 12px 40px 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+.search-input-container .search-input-field:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.search-input-container .search-submit-button-internal {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #888;
+    font-size: 1.3em;
+    cursor: pointer;
+    z-index: 2;
+    padding: 5px;
+    border-radius: 50%;
+    transition: color 0.3s ease;
+}
+
+.search-input-container .search-submit-button-internal:hover {
+    color: #04a39c;
+}
+
+
+/* สไตล์สำหรับปุ่มตัวเลือกประเภทการค้นหาภายใน Modal */
+.search-filter-label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.search-filter-buttons .btn {
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.search-filter-buttons .btn-outline-primary {
+    color: #007bff;
+    border-color: #007bff;
+}
+
+.search-filter-buttons .btn-outline-primary:hover,
+.search-filter-buttons .btn-check:checked + .btn-outline-primary {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+
+/* แถบด้านบน (Top-bar) */
+.header-top-bar {
+    background-color: #f8f9fa;
+    width: 100%;
+}
+
+/* แถบเมนูหลัก (Main-nav) */
+.header-main-nav {
+    background-color: #ffffff;
+    width: 100%;
+}
+
+/* สไตล์สำหรับโลโก้ของเว็บไซต์ (สำหรับ Desktop) */
+.gustabe-header-full-width .site-branding .custom-logo-link img.custom-logo.desktop-logo {
+    max-height: 50px;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+/* สไตล์สำหรับโลโก้มือถือ */
+.gustabe-header-full-width .custom-logo-mobile {
+    max-height: 40px;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* สไตล์สำหรับชื่อเว็บไซต์ที่แสดงแทนโลโก้ mobile (ถ้าไม่ได้ใช้รูป) */
+.gustabe-header-full-width .site-branding .site-title.mobile-logo {
+    font-size: 1.5em;
+    line-height: 1;
+}
+
+/* สไตล์สำหรับชื่อเว็บไซต์และ Tagline (ถ้าแสดงแทนโลโก้ Desktop) */
+.gustabe-header-full-width .site-branding .site-title.desktop-logo a,
+.gustabe-header-full-width .site-branding .site-description.desktop-logo {
+    color: #333;
+    text-decoration: none;
+}
+.gustabe-header-full-width .site-branding .site-title.desktop-logo a:hover {
+    color: #508c60;
+}
+
+
+/* สไตล์สำหรับเมนูนำทางหลัก (บนคอมพิวเตอร์/หน้าจอใหญ่) */
+.gustabe-header-full-width .main-navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.gustabe-header-full-width .main-navigation ul li {
+    margin: 0 15px;
+}
+
+.gustabe-header-full-width .main-navigation ul li a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px 0;
+    display: block;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* สไตล์เมื่อนำเมาส์ไปชี้ (hover) หรือเป็นเมนูที่กำลังใช้งาน */
+.gustabe-header-full-width .main-navigation ul li a:hover,
+.gustabe-header-full-width .main-navigation ul li.current-menu-item a {
+    color: #04a39c;
+}
+
+/* สไตล์สำหรับไอคอนตะกร้าสินค้าและไอคอนบัญชีผู้ใช้ */
+.gustabe-header-full-width .header-actions .cart-contents,
+.gustabe-header-full-width .header-actions .my-account-link {
+    color: #555;
+    font-size: 1.2em;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* สไตล์เมื่อนำเมาส์ไปชี้ที่ไอคอน */
+.gustabe-header-full-width .header-actions .cart-contents:hover,
+.gustabe-header-full-width .header-actions .my-account-link:hover {
+    color: #04a39c;
+}
+
+/* สไตล์สำหรับตัวเลขจำนวนสินค้าในตะกร้า */
+.gustabe-header-full-width .cart-count {
+    font-size: 0.7em;
+    background-color: #dc3545;
+    padding: .25em .6em;
+    border-radius: 50%;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+
+/* สไตล์สำหรับปุ่ม Toggle เมนูบนมือถือ (Hamburger) */
+.gustabe-header-full-width .navbar-toggler {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+
+/* สไตล์สำหรับไอคอน Hamburger */
+.gustabe-header-full-width .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* สไตล์สำหรับเมนูมือถือที่ซ่อนอยู่และจะแสดงเมื่อกด Hamburger */
+.gustabe-header-full-width #mobileMenu {
+    background-color: #F8F9FA;
+    padding: 15px;
+    border-top: 1px solid #eee;
+}
+
+.gustabe-header-full-width #mobileMenu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.gustabe-header-full-width #mobileMenu ul li {
+    margin-bottom: 10px;
+}
+
+.gustabe-header-full-width #mobileMenu ul li a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s ease;
+}
+
+/* สไตล์เมื่อนำเมาส์ไปชี้ที่เมนูมือถือ */
+.gustabe-header-full-width #mobileMenu ul li a:hover {
+    background-color: #e9ecef;
+}
+
+
+/* ควบคุมการแสดงผลโลโก้และปุ่ม Hamburger ตามขนาดหน้าจอ */
+
+/* ซ่อนโลโก้มือถือบนหน้าจอ Desktop (ขนาดใหญ่กว่า 991.98px) */
+@media (min-width: 992px) { /* สำหรับหน้าจอขนาด lg ขึ้นไป */
+    .gustabe-header-full-width .site-branding .mobile-logo {
+        display: none !important;
+    }
+    .gustabe-header-full-width .site-branding .desktop-logo {
+        display: flex !important;
+        align-items: center;
+    }
+    /* ซ่อนปุ่ม Hamburger บน Desktop */
+    .gustabe-header-full-width .navbar-toggler {
+        display: none !important;
+    }
+}
+
+/* ซ่อนโลโก้ Desktop บนหน้าจอมือถือ (ขนาดเล็กกว่า 992px) */
+@media (max-width: 991.98px) { /* สำหรับหน้าจอขนาดเล็กกว่า lg breakpoint */
+    .gustabe-header-full-width .site-branding .desktop-logo {
+        display: none !important;
+    }
+    .gustabe-header-full-width .site-branding .mobile-logo {
+        display: flex !important;
+        align-items: center;
+    }
+    /* แสดงปุ่ม Hamburger บนมือถือ */
+    .gustabe-header-full-width .navbar-toggler {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+/* คุณอาจจะต้องปรับตำแหน่งของปุ่ม Hamburger ให้เหมาะสมด้วย margin */
+.gustabe-header-full-width .header-actions .navbar-toggler {
+    margin-left: 10px;
+}
