@@ -226,7 +226,7 @@ add_filter('login_headerurl', function() {
 });
 // โค้ดใหม่ (แก้ไขแล้ว)
 add_filter('login_headertext', function() {
-    return 'กลับไปที่เว็บไซต์ fasicare';
+    return 'กลับไปที่เว็บไซต์ ' . get_bloginfo('name');
 });
 
 // Add back button to lost password form
@@ -238,7 +238,7 @@ add_action('login_footer', function () {
                 var formContainer = document.querySelector('form#lostpasswordform p.submit');
                 if (formContainer) {
                     var backButton = document.createElement('a');
-                    backButton.href = "<?php echo home_url('/fasicare-login'); ?>";
+                    backButton.href = "<?php echo home_url('/' . (defined('CUSTOM_LOGIN_SLUG') ? CUSTOM_LOGIN_SLUG : 'fasicare-login')); ?>";
                     backButton.textContent = "Back";
                     backButton.className = "back-button";
                     var container = document.createElement('div');
@@ -269,7 +269,7 @@ add_action('admin_head', function() {
         if (logoItem) {
             var newText = document.createElement('li');
             newText.id = 'wp-admin-bar-custom-text';
-            newText.innerHTML = 'fasicare';
+            newText.innerHTML = '<?php echo esc_js(get_bloginfo("name")); ?>';
             logoItem.parentNode.replaceChild(newText, logoItem);
         }
     });
@@ -289,6 +289,6 @@ function gustabe_custom_welcome_panel() {
         .custom-welcome-panel-header_gustabe a {color: #fff; text-decoration: underline;}
         .custom-welcome-panel-header_gustabe a:hover {color: #ffcc00;}
         </style>';
-        echo '<div class="custom-welcome-panel-header_gustabe">ยินดีต้อนรับ ' . esc_html($current_user->display_name) . ' สู่เว็บไซต์ <a href="'.esc_url(home_url()).'">fasicare</a></div>';
+        echo '<div class="custom-welcome-panel-header_gustabe">ยินดีต้อนรับ ' . esc_html($current_user->display_name) . ' สู่เว็บไซต์ <a href="'.esc_url(home_url()).'">' . esc_html(get_bloginfo('name')) . '</a></div>';
     }
 }
